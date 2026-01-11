@@ -1,0 +1,102 @@
+
+
+:fullscreen, ::backdrop {
+    background-color: rgba(255,255,255,0);
+}
+
+*{
+	font-family: Oswald;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: white !important;
+	text-align: center;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+}
+.title{
+	font-size: 10vmax;
+	color: black;
+}
+.subtitle{
+	font-size: 5vmax;
+	color: black;
+}
+.button{
+	border: 4px solid black;
+	font-size: 7vmax;
+	color: black;
+	padding: 5vmin;
+	margin: 10vmin;
+	cursor: pointer;
+	display: inline-block;
+}
+.close{
+	margin: 5vmin;
+}
+.button:hover{
+	background-color: black;
+	color: white;
+}
+.input{
+	color: black;
+	width: 80vw;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 0;
+	outline: none;
+}
+#ball{
+	width: 5vh;
+	height: 5vh;
+	background-color: black;
+	position: fixed;
+	transform: translateX(-2.5vh) translateY(-2.5vh);
+	border-radius: 100%;
+}
+#paddle{
+	height: 30vh;
+	width: 5vh;
+	border-radius: 15px;
+	background-color: black;
+	position: fixed;
+	top: 50vh;
+	transform: translateX(-2.5vh) translateY(-15vh);
+/* 	transition: top .1s; */
+}
+.border{
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	border-top: 8px solid black;
+	border-bottom: 8px solid black;
+}
+.left{
+	border-left: 8px solid black;
+}
+.right{
+	border-right: 8px solid black;
+}
+.leftp{
+	left: 7.5vh;
+}
+.rightp{
+	right: 7.5vh;
+}
+#scorel{
+	font-size: 20vh;
+	color: black;
+	position: fixed;
+	left: 5vw;
+}
+#scorer{
+	font-size: 20vh;
+	color: black;
+	position: fixed;
+	right: 5vw;
+}
