@@ -1,0 +1,8 @@
+{
+  "title": "Ping Pong Multiplayer",
+  "description": "Challenge your friends in this multiplayer ping pong game.",
+  "keywords": ["pingpong", "multiplayer", "sports", "arcade", "tennis"],
+  "category": "Sports",
+  "author": "PewPlay",
+  "playMode": "MultiPlayer"
+}
