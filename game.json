@@ -2,6 +2,32 @@
   "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "Ping Pong Multiplayer",
   "description": "Challenge your friends in this multiplayer ping pong game.",
+  "about": "Ping Pong Multiplayer is a browser game where you open the game on two screens. Choose Left on one and Right on the other, enter the same room code and move your paddle to return the ball.\n\nStart a round in your browser and use the controls below to play.",
+  "howToPlay": "Open the game on two screens. Choose Left on one and Right on the other, enter the same room code and move your paddle to return the ball.",
+  "controls": [
+    {
+      "input": "Mouse / touch",
+      "action": "Move your paddle"
+    },
+    {
+      "input": "Room code",
+      "action": "Connect the second screen"
+    }
+  ],
+  "tips": [
+    "Use mouse / touch to move your paddle.",
+    "Try another round to practice the timing and strategy."
+  ],
+  "faq": [
+    {
+      "question": "How do I play Ping Pong Multiplayer?",
+      "answer": "Open the game on two screens. Choose Left on one and Right on the other, enter the same room code and move your paddle to return the ball."
+    },
+    {
+      "question": "Can I play Ping Pong Multiplayer in a browser?",
+      "answer": "Yes. Open the game page and play without installing an app."
+    }
+  ],
   "category": "Sports",
   "tags": [
     "pingpong",
@@ -10,6 +36,9 @@
     "arcade",
     "tennis"
   ],
-  "author": "PewPlay",
-  "playMode": "MultiPlayer"
+  "playMode": "MultiPlayer",
+  "orientation": "landscape",
+  "cover": "cover.png",
+  "draft": true,
+  "author": "PewPlay"
 }
