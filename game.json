@@ -1,8 +1,63 @@
 {
+  "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "Ping Pong Multiplayer",
-  "description": "Challenge your friends in this multiplayer ping pong game.",
-  "keywords": ["pingpong", "multiplayer", "sports", "arcade", "tennis"],
+  "description": "Link two screens with a six-letter code and play ping pong as the ball flies from one device to the other. Free online pong in your browser.",
+  "about": "Ping Pong Multiplayer turns two screens into one long table. Open the game on two devices, choose which one is the left screen and which one is the right, and connect them by typing a six-letter code. The ball then travels across both screens, leaving one device and appearing on the other.\n\nEach player controls a paddle on their own screen by moving the mouse or dragging a finger. Where the ball hits your paddle decides its angle, and every return makes it a little faster until someone misses and the rally starts again.\n\nIt is a fun party trick for two friends sitting side by side, whether you use two phones, two laptops or a phone and a tablet. The clean black and white look keeps the focus on quick reflexes.",
+  "howToPlay": "Open the game on two devices, press Start and Begin, then pick Left on one screen and Right on the other. Type the code shown on the left screen into the right screen to connect them. Move your paddle to send the ball back; if it gets past you, your opponent scores a point.",
+  "controls": [
+    {
+      "input": "Mouse",
+      "action": "Move your paddle up and down"
+    },
+    {
+      "input": "Touch / Drag",
+      "action": "Move your paddle on phones and tablets"
+    },
+    {
+      "input": "Click / Tap",
+      "action": "Choose menu options"
+    },
+    {
+      "input": "Keyboard",
+      "action": "Type the connection code on the right screen"
+    }
+  ],
+  "tips": [
+    "Place the two devices side by side, left screen on the left, so the ball appears to fly straight across.",
+    "Hit the ball with the edge of your paddle to send it at a steep angle that is harder to return.",
+    "The ball speeds up after every hit, so move back toward the middle after each return.",
+    "Turn your phones sideways: the game is designed for landscape screens."
+  ],
+  "faq": [
+    {
+      "question": "Is Ping Pong Multiplayer free to play?",
+      "answer": "Yes. It is completely free and runs in your browser with no download or sign-up."
+    },
+    {
+      "question": "Can I play on a phone or tablet?",
+      "answer": "Yes, each player moves the paddle by dragging a finger. Phones work best held in landscape, and both devices need an internet connection."
+    },
+    {
+      "question": "Can two people play on the same device?",
+      "answer": "No. The game needs two screens, one for each player, connected with the code shown on the left screen. There is no computer opponent."
+    }
+  ],
   "category": "Sports",
+  "tags": [
+    "pong",
+    "ping pong",
+    "table tennis",
+    "two player",
+    "multiplayer",
+    "online"
+  ],
   "author": "PewPlay",
-  "playMode": "MultiPlayer"
+  "playMode": "MultiPlayer",
+  "orientation": "landscape",
+  "cover": "cover.png",
+  "screenshots": [
+    "screenshots/1.png",
+    "screenshots/2.png",
+    "screenshots/3.png"
+  ]
 }

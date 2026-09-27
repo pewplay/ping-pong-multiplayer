@@ -17,11 +17,11 @@ body{
 	width: 100vw;
 }
 .title{
-	font-size: 10vmax;
+	font-size: min(10vmax, 13vw);
 	color: black;
 }
 .subtitle{
-	font-size: 5vmax;
+	font-size: min(5vmax, 8vw);
 	color: black;
 }
 .button{

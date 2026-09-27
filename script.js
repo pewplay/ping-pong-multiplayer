@@ -14,33 +14,44 @@ var config = {
 	messagingSenderId: "742378994580",
 	appId: "1:742378994580:web:a2b10a134fe65989d1ed81"
 };
-firebase.initializeApp(config);
+var database = null;
+if (typeof firebase !== "undefined") {
+	firebase.initializeApp(config);
+	database = firebase.database();
+}
 
-var database = firebase.database();
+function offline(){
+	var r = document.getElementById("replace");
+	r.innerHTML = '<div class="subtitle">COULD NOT CONNECT. THIS GAME NEEDS AN INTERNET CONNECTION.</div><div class="button" onclick="menu()">TRY AGAIN</div>';
+}
 
 
 function GoInFullscreen(element) {
-	if (element.requestFullscreen)
-		element.requestFullscreen();
-	else if (element.mozRequestFullScreen)
-		element.mozRequestFullScreen();
-	else if (element.webkitRequestFullscreen)
-		element.webkitRequestFullscreen();
-	else if (element.msRequestFullscreen)
-		element.msRequestFullscreen();
+	try {
+		var req;
+		if (element.requestFullscreen)
+			req = element.requestFullscreen();
+		else if (element.mozRequestFullScreen)
+			req = element.mozRequestFullScreen();
+		else if (element.webkitRequestFullscreen)
+			req = element.webkitRequestFullscreen();
+		else if (element.msRequestFullscreen)
+			req = element.msRequestFullscreen();
+		if (req && req.catch) req.catch(function(){});
 
-
-	screen.orientation.lock('landscape').then(res => console.log(res)).catch(err => console.log(err))
+		if (screen.orientation && screen.orientation.lock)
+			screen.orientation.lock('landscape').catch(function(){});
+	} catch (err) {}
 }
 
 function info(){
 	var r = document.getElementById("replace");
-	r.innerHTML = '<div class="subtitle">PER QUESTO GIOCO SI HA BISOGONO DI 2 SCHERMI SULLO STESSO CODICE</div><div class="button" onclick="menu()">INIZIA</div>';
-	GoInFullscreen($("body").get(0));
+	r.innerHTML = '<div class="subtitle">THIS GAME NEEDS 2 SCREENS CONNECTED WITH THE SAME CODE</div><div class="button" onclick="menu()">BEGIN</div>';
+	GoInFullscreen(document.body);
 }
 function menu(){
 	var r = document.getElementById("replace");
-	r.innerHTML = '<div class="subtitle">QUESTO È LO SCHERMO DI SINISTRA O DI DESTRA?</div><div class="button close" onclick="left()">SINISTRA</div><div class="button close" onclick="right()">DESTRA</div><';
+	r.innerHTML = '<div class="subtitle">IS THIS THE LEFT OR THE RIGHT SCREEN?</div><div class="button close" onclick="left()">LEFT</div><div class="button close" onclick="right()">RIGHT</div>';
 }
 function getCode(){
 	var letters = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -56,12 +67,12 @@ function getCode(){
 	});
 }
 function left(){
+	if (!database) return offline();
 	var r = document.getElementById("replace");
-	r.innerHTML = '<div class="subtitle">INSERIRE QUESTO CODICE NELLA SCHERMATA A DESTRA.</div><div class="title" id="code" style="margin-top: 10vmax">CARICAMENTO</div>';
+	r.innerHTML = '<div class="subtitle">ENTER THIS CODE ON THE RIGHT SCREEN.</div><div class="title" id="code" style="margin-top: 10vmax">LOADING</div>';
 	getCode();
 }
 function game(code){
-	console.log(code);
 	document.getElementById("code").innerHTML = code;
 	database.ref("/" + code).on("value", function(e){
 		if(e.val() == 2){
@@ -159,7 +170,6 @@ function game(code){
 				}
 				//console.log(time - last);
 				//last = time;
-				console.log(time);
 				window.scrollTo(0, 1); 
 			}
 			//var last = 0;
@@ -169,12 +179,12 @@ function game(code){
 	database.ref("/" + code).set(1);
 }
 function right(){
+	if (!database) return offline();
 	var r = document.getElementById("replace");
-	r.innerHTML = '<div class="subtitle">INSERIRE QUI IL CODICE DALLA SCHERMATA DI SINISTRA.</div><input class="title input" id="code" style="margin-top: 10vmax" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus oninput="checkCode(this)"/>';
+	r.innerHTML = '<div class="subtitle">ENTER THE CODE FROM THE LEFT SCREEN HERE.</div><input class="title input" id="code" style="margin-top: 10vmax" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus oninput="checkCode(this)"/>';
 }
 
 function checkCode(e){
-	console.log(11);
 	if(e.value.length == 6){
 		var code = e.value.toUpperCase();
 		database.ref("/" + code).once("value", function(e){
@@ -289,7 +299,6 @@ function checkCode(e){
 							}
 							//console.log(time - last);
 							//last = time;
-							console.log(time);
 							window.scrollTo(0, 1); 
 							//console.log(1)
 							
