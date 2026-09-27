@@ -1,8 +1,15 @@
 {
+  "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "Ping Pong Multiplayer",
   "description": "Challenge your friends in this multiplayer ping pong game.",
-  "keywords": ["pingpong", "multiplayer", "sports", "arcade", "tennis"],
   "category": "Sports",
+  "tags": [
+    "pingpong",
+    "multiplayer",
+    "sports",
+    "arcade",
+    "tennis"
+  ],
   "author": "PewPlay",
   "playMode": "MultiPlayer"
 }
